@@ -1,0 +1,25 @@
+body 
+{
+  font-family:sans-serif; 
+  background: -webkit-linear-gradient(to right, #155799, #159957);  
+  background: linear-gradient(to right, #155799, #159957); 
+  color:whitesmoke;
+  height: 98.5vh;
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+}
+#logout{
+    font-size: 1.8rem;
+    margin-left: 45px;
+    margin: 5px;
+}
+#heading{
+    margin-left: 45px;
+    text-align: center;
+    font-size: 5vh;
+}
+#userName{
+  text-align: center;
+  font-size: 2.5rem;
+}

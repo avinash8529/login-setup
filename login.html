@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="/login.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="head">
+            <h1>Login page</h1>
+        </div>
+        <div class="box-1">
+
+            <form action="" class="form-1" onsubmit="login(event)">
+                <div class="username">
+
+                    <label for="email">email:</label>
+                    <input type="text" name="username" id="email" placeholder="enter email">
+                </div>
+                <div class="password">
+
+                    <label for="password">Password:</label>
+                    <input type="password" name="password"id="password" placeholder="enter password">
+                </div>
+            </form>
+            <div id="error"></div>   
+            <div class="btn">
+                <button onclick="login()" id="login">LOGIN</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const login=(evt) => {
+       if(event.preventDefault) {
+        event.preventDefault();
+       }
+     
+    
+        const email = document.querySelector("#email").value;
+        const password = document.querySelector("#password").value;
+        const data = JSON.parse(localStorage.getItem('userInfo'));
+        const error = document.querySelector("#error");
+
+        if(data.email!=email){
+            location.href='/signup.html';
+            return true;
+        }
+
+       else if(data.email === email && data.password === password) {
+            error.innerText = "";
+            console.log("logged in")
+            location.href="/Profile.html"
+            return true;
+        }
+        else{
+            console.log("username or password is wrong")
+            error.innerText = "username or password is wrong"
+            // location.reload();
+        }
+    }
+</script>
+
+</html>

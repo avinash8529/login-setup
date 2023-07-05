@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    <link rel="stylesheet" href="/profile.css">
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <h2 id="heading">Welcome mr. </h2>
+            <div id="userName">
+                
+            </div>
+        </div>
+        <div class="btn">
+            <button id="logout"onclick="logout()">logout</button>
+        </div>
+    </div>
+</body>
+<script>
+    const data = JSON.parse(localStorage.getItem('userInfo'));
+    console.log(data)
+    
+    const logout = () => {
+        localStorage.removeItem("userInfo");
+        location.href="/login.html"
+    }
+    if(data) {
+        document.querySelector("#userName").innerText = data.userName;
+    }
+    else {
+        location.href="/loginSetup/login.html"
+    }
+</script>
+</html>
